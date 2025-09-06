@@ -1,6 +1,7 @@
 import os
 import subprocess
 import json
+import re
 
 def analyze_image(image_path):
     """
@@ -16,17 +17,22 @@ def analyze_image(image_path):
     
     try:
         result = subprocess.run(command, capture_output=True, text=True, check=True)
-        # Clean the output to extract only the JSON
         json_str = result.stdout.strip()
-        # Find the start and end of the JSON object
-        start_index = json_str.find('{')
-        end_index = json_str.rfind('}') + 1
-        if start_index != -1 and end_index != -1:
-            json_str = json_str[start_index:end_index]
+        # Look for a JSON block within ```json ... ```
+        match = re.search(r"```json\n({.*?})\n```", json_str, re.DOTALL)
+        if match:
+            json_str = match.group(1)
             return json.loads(json_str)
         else:
-            print(f"Error: No JSON object found in the output for {image_path}")
-            return None
+            # Fallback to finding the first and last curly braces
+            start_index = json_str.find('{')
+            end_index = json_str.rfind('}') + 1
+            if start_index != -1 and end_index != -1:
+                json_str = json_str[start_index:end_index]
+                return json.loads(json_str)
+            else:
+                print(f"Error: No JSON object found in the output for {image_path}")
+                return None
     except subprocess.CalledProcessError as e:
         print(f"Error analyzing {image_path}: {e}")
         print(f"Stderr: {e.stderr}")
@@ -35,7 +41,6 @@ def analyze_image(image_path):
         print(f"Error decoding JSON for {image_path}: {e}")
         print(f"Raw output: {result.stdout}")
         return None
-
 
 def generate_linkedin_post(photo_analyses):
     """
@@ -51,17 +56,20 @@ def generate_linkedin_post(photo_analyses):
 
     try:
         result = subprocess.run(command, capture_output=True, text=True, check=True)
-        # Clean the output to extract only the JSON
         json_str = result.stdout.strip()
-        # Find the start and end of the JSON object
-        start_index = json_str.find('{')
-        end_index = json_str.rfind('}') + 1
-        if start_index != -1 and end_index != -1:
-            json_str = json_str[start_index:end_index]
+        match = re.search(r"```json\n({.*?})\n```", json_str, re.DOTALL)
+        if match:
+            json_str = match.group(1)
             return json.loads(json_str)
         else:
-            print("Error: No JSON object found in the LinkedIn post generation output.")
-            return None
+            start_index = json_str.find('{')
+            end_index = json_str.rfind('}') + 1
+            if start_index != -1 and end_index != -1:
+                json_str = json_str[start_index:end_index]
+                return json.loads(json_str)
+            else:
+                print("Error: No JSON object found in the LinkedIn post generation output.")
+                return None
     except subprocess.CalledProcessError as e:
         print(f"Error generating LinkedIn post: {e}")
         print(f"Stderr: {e.stderr}")
