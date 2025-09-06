@@ -117,59 +117,56 @@ IGNORE\_WHEN\_COPYING\_END
   * Store the resulting JSON dictionary from each photo in a single list.  
   * At the end of the loop, convert the entire list of dictionaries into a single JSON string.  
 *   
-* **\[20 mins\] Task 3: Podcast Script Generation (Gemini Chaining)**  
-  * **Lead Coder:** Create a second function that takes the aggregated JSON string of photo analyses as input.  
+* **\[20 mins\] Task 3: LinkedIn Post Generation and Publishing (Gemini Chaining)**  
+  * **Lead Coder (Python):** Create a second function that takes the aggregated JSON string of photo analyses as input.  
   * Make another subprocess call to the Gemini CLI, feeding it this data.
 
 **Focus on the Chaining Prompt:** This demonstrates creative Gemini usage.  
- code Bash  
-downloadcontent\_copy  
-expand\_less  
-IGNORE\_WHEN\_COPYING\_START  
-IGNORE\_WHEN\_COPYING\_END  
-    gemini chat "You are a podcast host. I'll provide a JSON array of photo analyses. Create a short, engaging podcast script titled 'A Story in Snapshots' that weaves these photos into a narrative journey. Use the descriptions, locations, and emotions to build the story. Format the output in Markdown. Here is the photo data: \[PASTE JSON STRING HERE\]" \--model "gemini-1.5-pro"
+    gemini chat "You are a social media manager. I'll provide a JSON array of photo analyses. Create a professional and engaging LinkedIn post that weaves these photos into a narrative. Use the descriptions, locations, and emotions to build the story. Include relevant hashtags. Format the output as a JSON object with 'post_text' and 'image_to_post' keys. Here is the photo data: [PASTE JSON STRING HERE]" \--model "gemini-1.5-pro"
 
-*    
-  * Save the Markdown output to a file in the /outputs directory (e.g., podcast\_script.md).  
-* 
+* The function should parse the JSON output and then use a Python library (e.g., `requests` or a dedicated LinkedIn API library) to post the `post_text` and the corresponding image to LinkedIn. **(Note: For the demo, you can mock the final API call and print the post content to the console).**  
+* Save the post text to a file in the /outputs directory (e.g., `linkedin_post.txt`).
 
-#### **Phase 3: Documentation & Demo Prep (2:20 PM \- 2:45 PM | 25 Minutes)**
+#### **Phase 3: Frontend Wrapper Development (1:15 PM - 2:20 PM | 65 Minutes)**
+
+* **[65 mins] Task 4: Node.js/TypeScript Frontend Wrapper**
+    * **Lead Coder (Node.js):** Develop a simple web interface using TypeScript and Node.js (e.g., with Express and React/Vue).
+    * The frontend should provide a button to trigger the Python script (`main.py`).
+    * It should display the generated LinkedIn post text from the `outputs/linkedin_post.txt` file.
+    * This demonstrates a more complete solution architecture.
+
+#### **Phase 4: Documentation & Demo Prep (2:20 PM - 2:45 PM | 25 Minutes)**
 
 * **\[15 mins\] Finalize README & Code Comments**  
   * **Docs & PM:** Complete the README.md. It **must** include:  
     * Project title and a one-sentence description.  
     * How it uses Gemini CLI (multimodal analysis, text generation).  
-    * **Installation:** git clone ..., pip install ... (if any).  
+    * **Installation:** `git clone ...`, `pip install ...`, `npm install`  
     * **How to Run:**  
       1. Place your .jpg or .png files in the /photos folder.  
-      2. Run python main.py.  
-      3. Find your script in the /outputs folder.  
-    *   
-  *   
-  * **Lead Coder:** Clean up the script and add inline comments explaining the Gemini CLI calls. This is crucial for the "Documentation" score.  
-*   
+      2. Run `python main.py`.  
+      3. Run `npm start` in the `frontend` directory.  
+      4. Open your browser to `http://localhost:3000`.  
+      5. Find your post text in the `outputs` folder.  
+  * **Lead Coders:** Clean up the scripts and add inline comments explaining the Gemini CLI calls. This is crucial for the "Documentation" score.  
 * **\[10 mins\] End-to-End Test & Demo Rehearsal**  
-  * **Everyone:** Do a full run-through. Delete the output file, run python main.py, and check the result.  
-  * **Demo & QA:** Prepare the screen for recording. Have the code editor, the terminal, the /photos folder, and the (empty) /outputs folder visible.  
-* 
+  * **Everyone:** Do a full run-through. Delete the output file, run `python main.py`, run the frontend, and check the result.  
+  * **Demo & QA:** Prepare the screen for recording. Have the code editor, the terminal, the /photos folder, the (empty) /outputs folder, and the web browser visible.  
 
-#### **Phase 4: Record & Submit (2:45 PM \- 3:00 PM | 15 Minutes)**
+#### **Phase 5: Record & Submit (2:45 PM - 3:00 PM | 15 Minutes)**
 
 * **\[10 mins\] Record the 3-Minute Video**  
-  * **(0:00 \- 0:30):** Introduction. "We built Photo Scribe, an AI agent that uses the Gemini CLI to turn a local folder of photos into a podcast script."  
-  * **(0:30 \- 2:00):** Live Demo.  
+  * **(0:00 - 0:30):** Introduction. "We built Photo Scribe, an AI agent that uses the Gemini CLI to turn a local folder of photos into a LinkedIn post."  
+  * **(0:30 - 2:00):** Live Demo.  
     * Show the sample photos in the /photos folder.  
-    * Run python main.py in the terminal.  
-    * Show the script executing.  
-    * Open the generated podcast\_script.md and scroll through it, pointing out how Gemini wove the photo details into a narrative.  
-  *   
-  * **(2:00 \- 2:30):** Technical Showcase. Briefly show the two Gemini CLI prompts in your code, explaining the multimodal analysis and the chaining logic.  
-  * **(2:30 \- 3:00):** Conclusion. "This project demonstrates a personal and creative workflow, directly aligning with the buildathon's theme, and showcases the power of Gemini CLI for multimodal understanding and content generation."  
-*   
+    * Show the frontend wrapper in the browser.  
+    * Click the button to trigger the script.  
+    * Show the script executing in the terminal.  
+    * Show the generated post in the browser and in the `outputs` folder.  
+  * **(2:00 - 2:30):** Technical Showcase. Briefly show the two Gemini CLI prompts in your code, explaining the multimodal analysis and the chaining logic.  
+  * **(2:30 - 3:00):** Conclusion. "This project demonstrates a personal and creative workflow, directly aligning with the buildathon's theme, and showcases the power of Gemini CLI for multimodal understanding and content generation."  
 * **\[5 mins\] Final Submission**  
   * Push the final code and README to GitHub.  
   * Submit the repository link and video link. **Double-check that you have granted judge access if the repository is private.**  
-* 
 
 **Good luck, Tinkerers\! This is a tight schedule, but by focusing on the core MVP, you can deliver a high-scoring project.**
-
