@@ -1,0 +1,217 @@
+2025-09-06 18:58:22,539 - INFO - --- Starting main function ---
+2025-09-06 18:58:22,539 - INFO - Script directory: /llm_models_python_code_src/MediaSynth
+2025-09-06 18:58:22,539 - INFO - Photos directory: /llm_models_python_code_src/MediaSynth/photos
+2025-09-06 18:58:22,539 - INFO - Outputs directory: /llm_models_python_code_src/MediaSynth/outputs
+2025-09-06 18:58:22,539 - INFO - Found 5 image file(s).
+2025-09-06 18:58:22,540 - INFO - --- Starting analyze_image for: /llm_models_python_code_src/MediaSynth/photos/IMG_6846.JPG ---
+2025-09-06 18:58:22,540 - INFO - Generated prompt: @MediaSynth/photos/IMG_6846.JPG Analyze this photo. Return a JSON object with the following keys: 'description', 'inferred_location', 'subjects', and 'dominant_emotion'. Be descriptive.
+2025-09-06 18:58:22,540 - INFO - --- Starting analyze_image for: /llm_models_python_code_src/MediaSynth/photos/IMG_7811.JPG ---
+2025-09-06 18:58:22,540 - INFO - Running command: gemini -p @MediaSynth/photos/IMG_6846.JPG Analyze this photo. Return a JSON object with the following keys: 'description', 'inferred_location', 'subjects', and 'dominant_emotion'. Be descriptive. -m gemini-2.5-flash
+2025-09-06 18:58:22,540 - INFO - --- Starting analyze_image for: /llm_models_python_code_src/MediaSynth/photos/IMG_7810.JPG ---
+2025-09-06 18:58:22,541 - INFO - Generated prompt: @MediaSynth/photos/IMG_7811.JPG Analyze this photo. Return a JSON object with the following keys: 'description', 'inferred_location', 'subjects', and 'dominant_emotion'. Be descriptive.
+2025-09-06 18:58:22,541 - INFO - --- Starting analyze_image for: /llm_models_python_code_src/MediaSynth/photos/IMG_6840.JPG ---
+2025-09-06 18:58:22,541 - INFO - Passed rate limiter, proceeding with request.
+2025-09-06 18:58:22,541 - INFO - Generated prompt: @MediaSynth/photos/IMG_7810.JPG Analyze this photo. Return a JSON object with the following keys: 'description', 'inferred_location', 'subjects', and 'dominant_emotion'. Be descriptive.
+2025-09-06 18:58:22,542 - INFO - --- Starting analyze_image for: /llm_models_python_code_src/MediaSynth/photos/IMG_6822.JPG ---
+2025-09-06 18:58:22,542 - INFO - Running command: gemini -p @MediaSynth/photos/IMG_7811.JPG Analyze this photo. Return a JSON object with the following keys: 'description', 'inferred_location', 'subjects', and 'dominant_emotion'. Be descriptive. -m gemini-2.5-flash
+2025-09-06 18:58:22,542 - INFO - Generated prompt: @MediaSynth/photos/IMG_6840.JPG Analyze this photo. Return a JSON object with the following keys: 'description', 'inferred_location', 'subjects', and 'dominant_emotion'. Be descriptive.
+2025-09-06 18:58:22,543 - INFO - Running command: gemini -p @MediaSynth/photos/IMG_7810.JPG Analyze this photo. Return a JSON object with the following keys: 'description', 'inferred_location', 'subjects', and 'dominant_emotion'. Be descriptive. -m gemini-2.5-flash
+2025-09-06 18:58:22,543 - INFO - Generated prompt: @MediaSynth/photos/IMG_6822.JPG Analyze this photo. Return a JSON object with the following keys: 'description', 'inferred_location', 'subjects', and 'dominant_emotion'. Be descriptive.
+2025-09-06 18:58:22,543 - INFO - Passed rate limiter, proceeding with request.
+2025-09-06 18:58:22,543 - INFO - Running command: gemini -p @MediaSynth/photos/IMG_6840.JPG Analyze this photo. Return a JSON object with the following keys: 'description', 'inferred_location', 'subjects', and 'dominant_emotion'. Be descriptive. -m gemini-2.5-flash
+2025-09-06 18:58:22,544 - INFO - Passed rate limiter, proceeding with request.
+2025-09-06 18:58:22,544 - INFO - Running command: gemini -p @MediaSynth/photos/IMG_6822.JPG Analyze this photo. Return a JSON object with the following keys: 'description', 'inferred_location', 'subjects', and 'dominant_emotion'. Be descriptive. -m gemini-2.5-flash
+2025-09-06 18:58:22,544 - INFO - Passed rate limiter, proceeding with request.
+2025-09-06 18:58:22,545 - INFO - Passed rate limiter, proceeding with request.
+2025-09-06 18:58:36,913 - INFO - Command stdout for /llm_models_python_code_src/MediaSynth/photos/IMG_7810.JPG:
+```json
+{
+  "description": "A photograph capturing two individuals, a man and a woman, standing in front of a large projection screen. The screen displays text related to a 'Google Gemini CLI Hackathon' held on 'September 6th|NYC', along with logos for 'AI TINKERERS' and 'betaworks'. The man, positioned closer to the viewer and holding a microphone, is smiling broadly. The woman, standing slightly behind and to his right, is also smiling. Both appear engaged and happy. The setting suggests an event or presentation.",
+  "inferred_location": "New York City, likely at a venue associated with betaworks or an event space for hackathons, given the screen content.",
+  "subjects": [
+    "A man with light hair, wearing a colorful striped shirt, holding a microphone.",
+    "A woman with dark hair and glasses, wearing a maroon dress."
+  ],
+  "dominant_emotion": "Joy/Happiness"
+}
+```
+
+2025-09-06 18:58:36,913 - INFO - Command stderr for /llm_models_python_code_src/MediaSynth/photos/IMG_7810.JPG:
+Loaded cached credentials.
+
+2025-09-06 18:58:36,913 - INFO - Attempting to find JSON block in output.
+2025-09-06 18:58:36,914 - INFO - Found JSON block using regex.
+2025-09-06 18:58:36,914 - INFO - Attempting to parse JSON: {
+  "description": "A photograph capturing two individuals, a man and a woman, standing in front of a large projection screen. The screen displays text related to a 'Google Gemini CLI Hackathon' held on 'September 6th|NYC', along with logos for 'AI TINKERERS' and 'betaworks'. The man, positioned closer to the viewer and holding a microphone, is smiling broadly. The woman, standing slightly behind and to his right, is also smiling. Both appear engaged and happy. The setting suggests an event or presentation.",
+  "inferred_location": "New York City, likely at a venue associated with betaworks or an event space for hackathons, given the screen content.",
+  "subjects": [
+    "A man with light hair, wearing a colorful striped shirt, holding a microphone.",
+    "A woman with dark hair and glasses, wearing a maroon dress."
+  ],
+  "dominant_emotion": "Joy/Happiness"
+}
+2025-09-06 18:58:36,914 - INFO - Successfully parsed JSON.
+2025-09-06 18:58:36,914 - INFO - --- Finished analyze_image for: /llm_models_python_code_src/MediaSynth/photos/IMG_7810.JPG ---
+2025-09-06 18:58:36,915 - INFO - Successfully analyzed /llm_models_python_code_src/MediaSynth/photos/IMG_7810.JPG. Appending to results.
+2025-09-06 18:58:37,192 - INFO - Command stdout for /llm_models_python_code_src/MediaSynth/photos/IMG_6822.JPG:
+```json
+{
+  "description": "The image features two individuals, a man and a woman, standing in front of a large whiteboard. The whiteboard is covered with handwritten notes and diagrams, including topics like 'Receipt organizer', 'Discord-type Mod Manager', 'Flight Spend', 'Music organizer', and a flow chart detailing 'Product', 'Price', and 'Subscriptions'. The man, wearing a colorful striped shirt and jeans, appears to be holding a marker, suggesting he might be actively writing or explaining. The woman, wearing a white off-the-shoulder top and dark pants, has a name tag visible that reads 'Jing'. The setting appears to be an indoor space with a light-colored, speckled floor, possibly a modern office, classroom, or collaborative workspace.",
+  "inferred_location": "Office, classroom, or collaborative meeting space.",
+  "subjects": [
+    "A man with light hair",
+    "A woman with dark hair (named Jing)",
+    "A large whiteboard with notes and diagrams"
+  ],
+  "dominant_emotion": "Engaged/Neutral"
+}
+```
+
+2025-09-06 18:58:37,193 - INFO - Command stderr for /llm_models_python_code_src/MediaSynth/photos/IMG_6822.JPG:
+Loaded cached credentials.
+
+2025-09-06 18:58:37,193 - INFO - Attempting to find JSON block in output.
+2025-09-06 18:58:37,193 - INFO - Found JSON block using regex.
+2025-09-06 18:58:37,193 - INFO - Attempting to parse JSON: {
+  "description": "The image features two individuals, a man and a woman, standing in front of a large whiteboard. The whiteboard is covered with handwritten notes and diagrams, including topics like 'Receipt organizer', 'Discord-type Mod Manager', 'Flight Spend', 'Music organizer', and a flow chart detailing 'Product', 'Price', and 'Subscriptions'. The man, wearing a colorful striped shirt and jeans, appears to be holding a marker, suggesting he might be actively writing or explaining. The woman, wearing a white off-the-shoulder top and dark pants, has a name tag visible that reads 'Jing'. The setting appears to be an indoor space with a light-colored, speckled floor, possibly a modern office, classroom, or collaborative workspace.",
+  "inferred_location": "Office, classroom, or collaborative meeting space.",
+  "subjects": [
+    "A man with light hair",
+    "A woman with dark hair (named Jing)",
+    "A large whiteboard with notes and diagrams"
+  ],
+  "dominant_emotion": "Engaged/Neutral"
+}
+2025-09-06 18:58:37,193 - INFO - Successfully parsed JSON.
+2025-09-06 18:58:37,193 - INFO - --- Finished analyze_image for: /llm_models_python_code_src/MediaSynth/photos/IMG_6822.JPG ---
+2025-09-06 18:58:37,193 - INFO - Successfully analyzed /llm_models_python_code_src/MediaSynth/photos/IMG_6822.JPG. Appending to results.
+2025-09-06 18:58:37,264 - INFO - Command stdout for /llm_models_python_code_src/MediaSynth/photos/IMG_6846.JPG:
+```json
+{
+  "description": "A group of four individuals are gathered around a round wooden table, actively engaged with their laptops in what appears to be a collaborative or co-working environment. Two individuals are seated on a dark blue upholstered bench, while another is in a chair. The table is cluttered with laptops, water glasses, pizza slices on plates, and personal items such as sunglasses, hand sanitizer, and a red JBL speaker. The overall atmosphere suggests focused work or study.",
+  "inferred_location": "A cafe, co-working space, or a casual meeting area, possibly during a workshop or hackathon given the presence of name tags.",
+  "subjects": [
+    "A person in a grey t-shirt with 'MILINIUM F NIT ON corellian Egineering CorporT-1300 tank' text, possibly named Han, looking thoughtfully at a laptop.",
+    "A woman in a black and white patterned top, identified by her name tag as Marie-France, focused on her laptop.",
+    "A person in a dark blue t-shirt, identified by their name tag as Marlon, actively typing on a laptop.",
+    "Another person partially visible in a white shirt and black cap.",
+    "Laptops (Dell, Apple), water glasses, pizza, a red JBL speaker, sunglasses, Purell hand sanitizer, and a mobile phone displaying '14:35'."
+  ],
+  "dominant_emotion": "Focused and engaged, with an underlying sense of collaboration or concentration."
+}
+```
+
+2025-09-06 18:58:37,264 - INFO - Command stderr for /llm_models_python_code_src/MediaSynth/photos/IMG_6846.JPG:
+Loaded cached credentials.
+
+2025-09-06 18:58:37,264 - INFO - Attempting to find JSON block in output.
+2025-09-06 18:58:37,265 - INFO - Found JSON block using regex.
+2025-09-06 18:58:37,265 - INFO - Attempting to parse JSON: {
+  "description": "A group of four individuals are gathered around a round wooden table, actively engaged with their laptops in what appears to be a collaborative or co-working environment. Two individuals are seated on a dark blue upholstered bench, while another is in a chair. The table is cluttered with laptops, water glasses, pizza slices on plates, and personal items such as sunglasses, hand sanitizer, and a red JBL speaker. The overall atmosphere suggests focused work or study.",
+  "inferred_location": "A cafe, co-working space, or a casual meeting area, possibly during a workshop or hackathon given the presence of name tags.",
+  "subjects": [
+    "A person in a grey t-shirt with 'MILINIUM F NIT ON corellian Egineering CorporT-1300 tank' text, possibly named Han, looking thoughtfully at a laptop.",
+    "A woman in a black and white patterned top, identified by her name tag as Marie-France, focused on her laptop.",
+    "A person in a dark blue t-shirt, identified by their name tag as Marlon, actively typing on a laptop.",
+    "Another person partially visible in a white shirt and black cap.",
+    "Laptops (Dell, Apple), water glasses, pizza, a red JBL speaker, sunglasses, Purell hand sanitizer, and a mobile phone displaying '14:35'."
+  ],
+  "dominant_emotion": "Focused and engaged, with an underlying sense of collaboration or concentration."
+}
+2025-09-06 18:58:37,265 - INFO - Successfully parsed JSON.
+2025-09-06 18:58:37,265 - INFO - --- Finished analyze_image for: /llm_models_python_code_src/MediaSynth/photos/IMG_6846.JPG ---
+2025-09-06 18:58:37,265 - INFO - Successfully analyzed /llm_models_python_code_src/MediaSynth/photos/IMG_6846.JPG. Appending to results.
+2025-09-06 18:58:37,300 - INFO - Command stdout for /llm_models_python_code_src/MediaSynth/photos/IMG_6840.JPG:
+```json
+{
+  "description": "A group of four individuals (two men and two women) are seated around a round table in what appears to be a cafe or co-working space. They are engaged with their laptops, with plates of pizza and drinks on the table. The atmosphere is casual and collaborative. One man wears a name tag reading 'Marlon' and another 'Frank'. The woman on the far right is smiling broadly at the camera, while the man on the left is also smiling. The setting features dark blue upholstered seating and textured wall panels, with a warm light fixture overhead.",
+  "inferred_location": "Cafe or co-working space",
+  "subjects": [
+    "Four individuals (two men, two women)",
+    "Laptops",
+    "Pizza",
+    "Drinks",
+    "Hand sanitizer",
+    "Eyeglasses"
+  ],
+  "dominant_emotion": "Contentment, collaboration, friendliness"
+}
+```
+
+2025-09-06 18:58:37,300 - INFO - Command stderr for /llm_models_python_code_src/MediaSynth/photos/IMG_6840.JPG:
+Loaded cached credentials.
+
+2025-09-06 18:58:37,301 - INFO - Attempting to find JSON block in output.
+2025-09-06 18:58:37,301 - INFO - Found JSON block using regex.
+2025-09-06 18:58:37,301 - INFO - Attempting to parse JSON: {
+  "description": "A group of four individuals (two men and two women) are seated around a round table in what appears to be a cafe or co-working space. They are engaged with their laptops, with plates of pizza and drinks on the table. The atmosphere is casual and collaborative. One man wears a name tag reading 'Marlon' and another 'Frank'. The woman on the far right is smiling broadly at the camera, while the man on the left is also smiling. The setting features dark blue upholstered seating and textured wall panels, with a warm light fixture overhead.",
+  "inferred_location": "Cafe or co-working space",
+  "subjects": [
+    "Four individuals (two men, two women)",
+    "Laptops",
+    "Pizza",
+    "Drinks",
+    "Hand sanitizer",
+    "Eyeglasses"
+  ],
+  "dominant_emotion": "Contentment, collaboration, friendliness"
+}
+2025-09-06 18:58:37,301 - INFO - Successfully parsed JSON.
+2025-09-06 18:58:37,301 - INFO - --- Finished analyze_image for: /llm_models_python_code_src/MediaSynth/photos/IMG_6840.JPG ---
+2025-09-06 18:58:37,301 - INFO - Successfully analyzed /llm_models_python_code_src/MediaSynth/photos/IMG_6840.JPG. Appending to results.
+2025-09-06 18:58:37,752 - INFO - Command stdout for /llm_models_python_code_src/MediaSynth/photos/IMG_7811.JPG:
+```json
+{
+  "description": "A vibrant, well-lit photograph captures two individuals, a man and a woman, standing in front of a large projection screen at what appears to be a tech event or hackathon. The man, positioned slightly forward and to the left, is fair-skinned with light hair and a beard, wearing a multi-colored striped long-sleeved shirt and blue jeans. He holds a microphone and is smiling broadly, looking directly at the viewer. Behind him and to his right stands a woman with dark hair, wearing glasses and a maroon dress. She is also smiling warmly, looking towards the viewer. The screen behind them displays text, partially visible, including 'Google Gemini CLI Hackathon', 'September 6th', 'Cloud', 'AI TINKERERS', and 'betaworks'. The setting suggests an indoor venue with a modern, possibly industrial, aesthetic, featuring clear acrylic podiums and tables in the background.",
+  "inferred_location": "A tech conference, hackathon, or similar industry event, likely hosted or sponsored by Google Gemini, AI Tinkerers, and Betaworks.",
+  "subjects": [
+    "A man with light hair and a beard, wearing a colorful striped shirt and jeans, holding a microphone.",
+    "A woman with dark hair and glasses, wearing a maroon dress."
+  ],
+  "dominant_emotion": "Joy/Happiness/Enthusiasm"
+}
+```
+
+2025-09-06 18:58:37,752 - INFO - Command stderr for /llm_models_python_code_src/MediaSynth/photos/IMG_7811.JPG:
+Loaded cached credentials.
+
+2025-09-06 18:58:37,752 - INFO - Attempting to find JSON block in output.
+2025-09-06 18:58:37,752 - INFO - Found JSON block using regex.
+2025-09-06 18:58:37,753 - INFO - Attempting to parse JSON: {
+  "description": "A vibrant, well-lit photograph captures two individuals, a man and a woman, standing in front of a large projection screen at what appears to be a tech event or hackathon. The man, positioned slightly forward and to the left, is fair-skinned with light hair and a beard, wearing a multi-colored striped long-sleeved shirt and blue jeans. He holds a microphone and is smiling broadly, looking directly at the viewer. Behind him and to his right stands a woman with dark hair, wearing glasses and a maroon dress. She is also smiling warmly, looking towards the viewer. The screen behind them displays text, partially visible, including 'Google Gemini CLI Hackathon', 'September 6th', 'Cloud', 'AI TINKERERS', and 'betaworks'. The setting suggests an indoor venue with a modern, possibly industrial, aesthetic, featuring clear acrylic podiums and tables in the background.",
+  "inferred_location": "A tech conference, hackathon, or similar industry event, likely hosted or sponsored by Google Gemini, AI Tinkerers, and Betaworks.",
+  "subjects": [
+    "A man with light hair and a beard, wearing a colorful striped shirt and jeans, holding a microphone.",
+    "A woman with dark hair and glasses, wearing a maroon dress."
+  ],
+  "dominant_emotion": "Joy/Happiness/Enthusiasm"
+}
+2025-09-06 18:58:37,753 - INFO - Successfully parsed JSON.
+2025-09-06 18:58:37,753 - INFO - --- Finished analyze_image for: /llm_models_python_code_src/MediaSynth/photos/IMG_7811.JPG ---
+2025-09-06 18:58:37,753 - INFO - Successfully analyzed /llm_models_python_code_src/MediaSynth/photos/IMG_7811.JPG. Appending to results.
+2025-09-06 18:58:37,754 - INFO - Starting LinkedIn post generation with collected analyses.
+2025-09-06 18:58:37,754 - INFO - --- Starting generate_linkedin_post ---
+2025-09-06 18:58:37,754 - INFO - Generated LinkedIn prompt.
+2025-09-06 18:58:37,754 - INFO - Running command: gemini -p You are a social media manager. I'll provide a JSON array of photo analyses. Create a professional and engaging LinkedIn post that weaves these photos into a narrative. Use the descriptions and emotions to build the story. Include relevant hashtags. Format the output as a JSON object with 'post_text' and 'image_to_post' keys. Here is the photo data: [{"description": "A photograph capturing two individuals, a man and a woman, standing in front of a large projection screen. The screen displays text related to a 'Google Gemini CLI Hackathon' held on 'September 6th|NYC', along with logos for 'AI TINKERERS' and 'betaworks'. The man, positioned closer to the viewer and holding a microphone, is smiling broadly. The woman, standing slightly behind and to his right, is also smiling. Both appear engaged and happy. The setting suggests an event or presentation.", "dominant_emotion": "Joy/Happiness"}, {"description": "The image features two individuals, a man and a woman, standing in front of a large whiteboard. The whiteboard is covered with handwritten notes and diagrams, including topics like 'Receipt organizer', 'Discord-type Mod Manager', 'Flight Spend', 'Music organizer', and a flow chart detailing 'Product', 'Price', and 'Subscriptions'. The man, wearing a colorful striped shirt and jeans, appears to be holding a marker, suggesting he might be actively writing or explaining. The woman, wearing a white off-the-shoulder top and dark pants, has a name tag visible that reads 'Jing'. The setting appears to be an indoor space with a light-colored, speckled floor, possibly a modern office, classroom, or collaborative workspace.", "dominant_emotion": "Engaged/Neutral"}, {"description": "A group of four individuals are gathered around a round wooden table, actively engaged with their laptops in what appears to be a collaborative or co-working environment. Two individuals are seated on a dark blue upholstered bench, while another is in a chair. The table is cluttered with laptops, water glasses, pizza slices on plates, and personal items such as sunglasses, hand sanitizer, and a red JBL speaker. The overall atmosphere suggests focused work or study.", "dominant_emotion": "Focused and engaged, with an underlying sense of collaboration or concentration."}, {"description": "A group of four individuals (two men and two women) are seated around a round table in what appears to be a cafe or co-working space. They are engaged with their laptops, with plates of pizza and drinks on the table. The atmosphere is casual and collaborative. One man wears a name tag reading 'Marlon' and another 'Frank'. The woman on the far right is smiling broadly at the camera, while the man on the left is also smiling. The setting features dark blue upholstered seating and textured wall panels, with a warm light fixture overhead.", "dominant_emotion": "Contentment, collaboration, friendliness"}, {"description": "A vibrant, well-lit photograph captures two individuals, a man and a woman, standing in front of a large projection screen at what appears to be a tech event or hackathon. The man, positioned slightly forward and to the left, is fair-skinned with light hair and a beard, wearing a multi-colored striped long-sleeved shirt and blue jeans. He holds a microphone and is smiling broadly, looking directly at the viewer. Behind him and to his right stands a woman with dark hair, wearing glasses and a maroon dress. She is also smiling warmly, looking towards the viewer. The screen behind them displays text, partially visible, including 'Google Gemini CLI Hackathon', 'September 6th', 'Cloud', 'AI TINKERERS', and 'betaworks'. The setting suggests an indoor venue with a modern, possibly industrial, aesthetic, featuring clear acrylic podiums and tables in the background.", "dominant_emotion": "Joy/Happiness/Enthusiasm"}] -m gemini-2.5-flash-lite
+2025-09-06 19:00:48,219 - INFO - LinkedIn post generation stdout:
+```json
+{
+  "post_text": "What an incredible day at the Google Gemini CLI Hackathon in NYC on September 6th! 🚀 It was inspiring to see so many brilliant minds come together, fueled by innovation and a shared passion for AI. \n\nFrom intense brainstorming sessions on the whiteboard, tackling ideas like 'Receipt organizer' and 'Discord-type Mod Manager', to deep collaborative work sessions around the table, the energy was palpable. Fuelled by pizza and great company, our teams dove into developing solutions, showcasing the power of focused teamwork.\n\nMoments like these, filled with \"Joy/Happiness/Enthusiasm\" and \"Focused and engaged\" collaboration, are what drive progress in the AI space. Huge thanks to AI TINKERERS and betaworks for hosting such a fantastic event!\n\n#AI #Hackathon #GoogleGemini #TechEvent #Collaboration #Innovation #Teamwork #NYC #ArtificialIntelligence #CLI",
+  "image_to_post": "A vibrant, well-lit photograph captures two individuals, a man and a woman, standing in front of a large projection screen at what appears to be a tech event or hackathon. The man, positioned slightly forward and to the left, is fair-skinned with light hair and a beard, wearing a multi-colored striped long-sleeved shirt and blue jeans. He holds a microphone and is smiling broadly, looking directly at the viewer. Behind him and to his right stands a woman with dark hair, wearing glasses and a maroon dress. She is also smiling warmly, looking towards the viewer. The screen behind them displays text, partially visible, including 'Google Gemini CLI Hackathon', 'September 6th', 'Cloud', 'AI TINKERERS', and 'betaworks'. The setting suggests an indoor venue with a modern, possibly industrial, aesthetic, featuring clear acrylic podiums and tables in the background."
+}
+```
+
+2025-09-06 19:00:48,219 - INFO - LinkedIn post generation stderr:
+Loaded cached credentials.
+
+2025-09-06 19:00:48,219 - INFO - Attempting to find JSON in LinkedIn post output.
+2025-09-06 19:00:48,219 - INFO - Found JSON block using regex.
+2025-09-06 19:00:48,219 - INFO - Attempting to parse JSON: {
+  "post_text": "What an incredible day at the Google Gemini CLI Hackathon in NYC on September 6th! 🚀 It was inspiring to see so many brilliant minds come together, fueled by innovation and a shared passion for AI. \n\nFrom intense brainstorming sessions on the whiteboard, tackling ideas like 'Receipt organizer' and 'Discord-type Mod Manager', to deep collaborative work sessions around the table, the energy was palpable. Fuelled by pizza and great company, our teams dove into developing solutions, showcasing the power of focused teamwork.\n\nMoments like these, filled with \"Joy/Happiness/Enthusiasm\" and \"Focused and engaged\" collaboration, are what drive progress in the AI space. Huge thanks to AI TINKERERS and betaworks for hosting such a fantastic event!\n\n#AI #Hackathon #GoogleGemini #TechEvent #Collaboration #Innovation #Teamwork #NYC #ArtificialIntelligence #CLI",
+  "image_to_post": "A vibrant, well-lit photograph captures two individuals, a man and a woman, standing in front of a large projection screen at what appears to be a tech event or hackathon. The man, positioned slightly forward and to the left, is fair-skinned with light hair and a beard, wearing a multi-colored striped long-sleeved shirt and blue jeans. He holds a microphone and is smiling broadly, looking directly at the viewer. Behind him and to his right stands a woman with dark hair, wearing glasses and a maroon dress. She is also smiling warmly, looking towards the viewer. The screen behind them displays text, partially visible, including 'Google Gemini CLI Hackathon', 'September 6th', 'Cloud', 'AI TINKERERS', and 'betaworks'. The setting suggests an indoor venue with a modern, possibly industrial, aesthetic, featuring clear acrylic podiums and tables in the background."
+}
+2025-09-06 19:00:48,220 - INFO - Successfully parsed JSON.
+2025-09-06 19:00:48,220 - INFO - --- Finished generate_linkedin_post ---
+2025-09-06 19:00:48,220 - INFO - Writing LinkedIn post to /llm_models_python_code_src/MediaSynth/outputs/linkedin_post.txt
+2025-09-06 19:00:48,220 - INFO - Successfully wrote post to file.
+2025-09-06 19:00:48,220 - INFO - --- Finished main function ---

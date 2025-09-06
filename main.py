@@ -3,6 +3,10 @@ import subprocess
 import json
 import re
 import logging
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import threading
+import collections
+import time
 
 # --- Logging Setup ---
 log_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'debug.log')
@@ -28,10 +32,17 @@ def analyze_image(image_path):
     command = [
         "gemini",
         "-p", prompt,
-        #"--model", "gemini-1.5-pro",
+        "-m", "gemini-2.5-flash", #"gemini-2.5-pro", # Using the pro model for better image analysis
     ]
     logging.info(f"Running command: {' '.join(command)}")
-    
+
+    # Wait for permission from the global rate limiter before making the request
+    try:
+        RATE_LIMITER.wait()
+        logging.info("Passed rate limiter, proceeding with request.")
+    except Exception as e:
+        logging.error(f"Rate limiter error: {e}")
+
     try:
         result = subprocess.run(command, capture_output=True, text=True, check=True)
         logging.info(f"Command stdout for {image_path}:\n{result.stdout}")
@@ -94,6 +105,7 @@ def generate_linkedin_post(photo_analyses):
     command = [
         "gemini",
         "-p", prompt,
+        "-m", "gemini-2.5-flash-lite",  # Using the latest flash model for better text generation
     ]
     logging.info(f"Running command: {' '.join(command)}")
 
@@ -138,6 +150,41 @@ def generate_linkedin_post(photo_analyses):
         logging.info("--- Finished generate_linkedin_post ---")
 
 
+# Simple thread-safe rate limiter (token-bucket like using timestamps)
+class RateLimiter:
+    def __init__(self, max_calls: int, period: float = 1.0):
+        self.max_calls = max_calls
+        self.period = period
+        self.lock = threading.Lock()
+        self.calls = collections.deque()
+
+    def wait(self):
+        """Block until a call is allowed under the rate limit."""
+        while True:
+            with self.lock:
+                now = time.time()
+                # purge old timestamps
+                while self.calls and self.calls[0] <= now - self.period:
+                    self.calls.popleft()
+
+                if len(self.calls) < self.max_calls:
+                    # allow and record timestamp
+                    self.calls.append(now)
+                    return
+
+                # need to wait until the earliest timestamp drops out
+                earliest = self.calls[0]
+                wait_time = self.period - (now - earliest)
+                if wait_time < 0:
+                    wait_time = 0
+            # sleep outside the lock
+            time.sleep(wait_time)
+
+
+# Global rate limiter: no more than 20 requests per 1 second across all threads
+RATE_LIMITER = RateLimiter(max_calls=20, period=1.0)
+
+
 def main():
     """
     Main function to run the photo analysis and post generation.
@@ -162,14 +209,24 @@ def main():
         logging.warning("No images found in the 'photos' directory. Exiting.")
         return
 
+    # Concurrent analysis using a thread pool (I/O-bound work)
+    max_workers = min(8, max(2, (os.cpu_count() or 2)))  # tune as needed
     all_analyses = []
-    for image_path in image_files:
-        analysis = analyze_image(image_path)
-        if analysis:
-            logging.info(f"Successfully analyzed {image_path}. Appending to results.")
-            all_analyses.append(analysis)
-        else:
-            logging.warning(f"Analysis failed for {image_path}, skipping.")
+    futures = {}
+    with ThreadPoolExecutor(max_workers=max_workers) as ex:
+        for img in image_files:
+            futures[ex.submit(analyze_image, img)] = img
+        for fut in as_completed(futures):
+            img = futures[fut]
+            try:
+                analysis = fut.result()
+                if analysis:
+                    logging.info(f"Successfully analyzed {img}. Appending to results.")
+                    all_analyses.append(analysis)
+                else:
+                    logging.warning(f"Analysis returned no data for {img}.")
+            except Exception as e:
+                logging.error(f"Exception analyzing {img}: {e}")
 
     if not all_analyses:
         logging.error("No images were successfully analyzed. Exiting.")
