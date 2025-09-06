@@ -8,7 +8,7 @@ def analyze_image(image_path):
     Analyzes a single image using the Gemini CLI.
     """
     print(f"Analyzing image: {image_path}")
-    prompt = f"@file:{image_path} Analyze this photo. Return a JSON object with the following keys: 'description', 'inferred_location', 'subjects', and 'dominant_emotion'. Be descriptive."
+    prompt = f"@MediaSynth/photos/{os.path.basename(image_path)} Analyze this photo. Return a JSON object with the following keys: 'description', 'inferred_location', 'subjects', and 'dominant_emotion'. Be descriptive."
     command = [
         "gemini",
         "-p", prompt,
