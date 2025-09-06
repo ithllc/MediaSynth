@@ -7,12 +7,13 @@ def analyze_image(image_path):
     """
     Analyzes a single image using the Gemini CLI.
     """
-    print(f"Analyzing image: {image_path}")
+    print(f"@MediaSynth/photos/{os.path.basename(image_path)}")
     prompt = f"@MediaSynth/photos/{os.path.basename(image_path)} Analyze this photo. Return a JSON object with the following keys: 'description', 'inferred_location', 'subjects', and 'dominant_emotion'. Be descriptive."
+    print(f"Generated prompt: {prompt}")
     command = [
         "gemini",
         "-p", prompt,
-        "--model", "gemini-1.5-pro",
+        #"--model", "gemini-1.5-pro",
     ]
     
     try:
