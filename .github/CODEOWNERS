@@ -1,0 +1,6 @@
+# Code owners for MediaSynth critical files.  When someone opens a PR that modifies
+# these paths, the listed owners will be requested for review.
+# Format: <pattern> <owner1> <owner2>
+/
+main.py @ithllc
+README.md @ithllc

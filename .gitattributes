@@ -1,0 +1,4 @@
+# Mark important files as lockable via Git LFS (GitHub supports LFS file locking)
+# This makes it easier to prevent concurrent edits (does not prevent download).
+main.py lockable
+README.md lockable
