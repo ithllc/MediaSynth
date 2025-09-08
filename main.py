@@ -32,7 +32,7 @@ def analyze_image(image_path):
     command = [
         "gemini",
         "-p", prompt,
-        "-m", "gemini-2.5-flash", #"gemini-2.5-pro", # Using the pro model for better image analysis
+        "-m", "gemini-2.5-pro", #"gemini-2.5-flash", # Using the pro model for better image analysis
     ]
     logging.info(f"Running command: {' '.join(command)}")
 
