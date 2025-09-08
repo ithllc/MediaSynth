@@ -5,6 +5,10 @@ LLMs can be used to help content creators by analyzing photos and automatically 
 single LinkedIn post that summarizes the images. This project is an experimental demo — not a
 production system.
 
+Creators, executives, and community leaders capture endless photos, clips, and documents during event-heavy weeks—but rarely turn them into content. Posts are delayed, inconsistent, or shallow. The backlog grows, and the narrative is lost.
+
+Content / Media Synth is a local-first content strategist agent built on Gemini CLI + MCP. It transforms a chaotic week of media into polished, platform-ready posts in the user’s own voice. In a world where 54% of marketers cite lack of resources and 45% lack a scalable content model, our agent helps professionals stay consistent, credible, and human online—without burnout.
+
 ### Key changes applied
 - `main.py` was updated to analyze multiple images concurrently using `ThreadPoolExecutor`.
 - A global, thread-safe `RateLimiter` was added to ensure the script makes no more than 20
@@ -100,33 +104,14 @@ python3 main.py
 
 ### Gemini CLI (required)
 This project invokes an external `gemini` command-line client. You must install and configure
-the vendor's Gemini CLI before running the script. The exact installation method depends on
-your platform and the vendor distribution channel; below are common options and guidance.
+the Gemini CLI before running the script.
 
-macOS (suggested)
-- Install Homebrew (if you don't have it): https://brew.sh
-- If the vendor publishes a Homebrew formula, you can install via Homebrew. Otherwise, follow
-  the official Gemini CLI installer or Python package instructions from the vendor.
-- Example (if available from vendor):
+**System Requirements:** Node.js version 20 or higher on macOS, Linux, or Windows.
 
-```bash
-# (only if a Homebrew formula exists)
-brew install gemini
-# or (if the vendor distributes a pip package)
-pip install gemini-cli
-```
-
-Windows 10 or newer
-- Use the vendor MSI installer (if provided) or a package manager such as Chocolatey/Scoop if
-  the vendor supports it. Alternatively, some vendors publish a Python package which can be
-  installed into the project's virtualenv via `pip`.
-- Example (PowerShell):
-
-```powershell
-# If vendor provides an installer: run the MSI or follow vendor instructions
-# If using pip in the activated venv:
-pip install gemini-cli
-```
+**Installation**
+- **Quick Install (with npx):** `npx https://github.com/google-gemini/gemini-cli`
+- **Install globally with npm:** `npm install -g @google/gemini-cli`
+- **Install globally with Homebrew (macOS/Linux):** `brew install gemini-cli`
 
 Important: the `gemini` CLI often requires authentication (credentials or API key). After
 installing the CLI, follow the vendor's authentication/setup steps so that running `gemini`
@@ -135,40 +120,3 @@ from your shell is authorized and returns expected outputs.
 If you don't have access to the Gemini CLI or prefer to test locally, add a mock/dry-run
 implementation (I can help add that) so the script can be tested without calling the real
 service.
-
-Content / Media Synth
-
-Overview
-
-Creators, executives, and community leaders capture endless photos, clips, and documents during event-heavy weeks—but rarely turn them into content. Posts are delayed, inconsistent, or shallow. The backlog grows, and the narrative is lost.
-
-Content / Media Synth is a local-first content strategist agent built on Gemini CLI + MCP. It transforms a chaotic week of media into polished, platform-ready posts in the user’s own voice.
-
-⸻
-
-Features
-	•	Local-first: Reads directly from a user’s hard drive (photos, PDFs, notes) with privacy by default.
-	•	Voice-trained: Learns from past posts to match tone and cadence.
-	•	Smart curation: Recommends the right photos, cross-references downloaded reports, and selects safe images.
-	•	POV generation: Produces LinkedIn longform and X/Warpcast variants that emphasize thought leadership over fluff.
-
-⸻
-
-Example Workflow
-
-A VC attends six events in four days and downloads a new AI infrastructure whitepaper.
-By Monday morning, Content / Media Synth produces:
-	•	A polished LinkedIn POV post referencing the whitepaper.
-	•	2 curated photos ready to publish.
-
-⸻
-
-Ideal Users
-	•	Pro Creator–Strategist: A newsletter + speaking creator who needs consistent, high-signal posts without spending 10+ hours editing.
-	•	Operator Exec/VC: A partner or GTM exec who wants authoritative posts (citations, insights, safe images) without the time burden.
-
-⸻
-
-Why It Matters
-
-In a world where 54% of marketers cite lack of resources and 45% lack a scalable content model, our agent helps professionals stay consistent, credible, and human online—without burnout.
